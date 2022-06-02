@@ -1,3 +1,2 @@
-# MyCodes
-# work in progress
-# different parts of one bigger project
+MyCodes
+different parts of one bigger project
