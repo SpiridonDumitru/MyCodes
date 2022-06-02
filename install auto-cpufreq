@@ -1,0 +1,12 @@
+	#install auto-cpufreq
+  
+0. download
+https://github.com/AdnanHodzic/auto-cpufreq
+https://www.youtube.com/watch?v=QkYRpVEEIlg
+
+1. stop / mask daemon power utility:
+systemctl status power-profiles-daemon.service
+systemctl mask power-profiles-daemon.service
+
+2. install on /auto-cpufreq/scripts/ ..install.sh: 
+sudo auto-cpufreq --install
