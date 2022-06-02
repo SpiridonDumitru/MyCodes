@@ -1,0 +1,13 @@
+# Shotwell select pictures
+# Create desktop slideshow
+
+# picture slideshow terminal
+
+  gsettings get org.yorba.shotwell.preferences.slideshow delay
+  gsettings set org.yorba.shotwell.preferences.slideshow delay 1
+  
+  gsettings set org.yorba.shotwell.preferences.slideshow show-title true
+  gsettings get org.yorba.shotwell.preferences.slideshow show-title
+  
+  gsettings get org.yorba.shotwell.preferences.slideshow transition-delay
+  gsettings set org.yorba.shotwell.preferences.slideshow transition-delay 0.1
