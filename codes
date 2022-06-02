@@ -1,0 +1,79 @@
+	# GRAB THE ENTIRE WEBSITE:
+
+$ wget \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains website.org \
+     --no-parent \
+        https://www.regular-expressions.info/completelines.html
+         
+#         The options are:
+#    --recursive: download the entire Web site.
+#    --domains website.org: don't follow links outside website.org.
+#    --no-parent: don't follow links outside the directory tutorials/html/.
+#    --page-requisites: get all the elements that compose the page (images, CSS and so on).
+#    --html-extension: save files with the .html extension.
+#    --convert-links: convert links so that they work locally, off-line.
+#    --restrict-file-names=windows: modify filenames so that they will work in Windows as well.
+#    --no-clobber: don't overwrite any existing files (used in case the download is interrupted and resumed).
+
+
+=================================================
+	#MAKE Books FROM VOLUMES /
+	#make Chapters from Books
+
+# split volume into books based on the 1st word inserted designator: 
+awk '/designator/{line="book"++i;}{print > line;}' volumefile 
+
+# rename a bookfile with the name of the first line: 
+awk 'FNR==1 {file=$0} {print > (file".txt")}' bookfiles*
+
+# delete the designator from all .txt files:
+sed -i 's/designator//' *.txt
+
+#Repeat the process for chapters from books.
+==================================================
+	# Minimize folder Ubuntu
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+==================================================
+
+	# Install MS fonts etc
+sudo apt install ubuntu-restricted-extras
+==================================================
+
+	#install plugins
+sudo apt install chrome-gnome-shell
+
+==================================================
+
+	#install auto-cpufreq
+0. download
+https://github.com/AdnanHodzic/auto-cpufreq
+https://www.youtube.com/watch?v=QkYRpVEEIlg
+
+1. stop / mask daemon power utility:
+systemctl status power-profiles-daemon.service
+systemctl mask power-profiles-daemon.service
+
+2. install on /auto-cpufreq/scripts/ ..install.sh: 
+sudo auto-cpufreq --install
+
+
+==================================================
+
+	# picture slideshow
+  gsettings get org.yorba.shotwell.preferences.slideshow delay
+  gsettings set org.yorba.shotwell.preferences.slideshow delay 1
+  
+  gsettings set org.yorba.shotwell.preferences.slideshow show-title true
+  gsettings get org.yorba.shotwell.preferences.slideshow show-title
+  
+  gsettings get org.yorba.shotwell.preferences.slideshow transition-delay
+  gsettings set org.yorba.shotwell.preferences.slideshow transition-delay 0.1
+
+===================================================
