@@ -1,0 +1,14 @@
+#MAKE Books FROM VOLUMES
+
+#make Chapters from Books
+
+# split volume into books based on the 1st word inserted designator: 
+awk '/designator/{line="book"++i;}{print > line;}' volumefile 
+
+# rename a bookfile with the name of the first line: 
+awk 'FNR==1 {file=$0} {print > (file".txt")}' bookfiles*
+
+# delete the designator from all .txt files:
+sed -i 's/designator//' *.txt
+
+#Repeat the process for chapters from books.
