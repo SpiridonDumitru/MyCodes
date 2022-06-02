@@ -1,3 +1,3 @@
 # MyCodes
-# work in progrress
+# work in progress
 # different parts of one bigger project
