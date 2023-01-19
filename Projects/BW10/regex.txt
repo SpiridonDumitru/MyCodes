@@ -1,0 +1,145 @@
+
+# Step 00. NO Next Word Note - Note below. 					1by1
+^(\d?\w*\s\d*:\d*)(\d)$\n
+<p><nsup>$2</nsup> <b>$1<sup>$2</sup>\n
+Note: delete virtual empty space from the entire document.
+
+e.g. Gen 1:12
+  Note below.
+
+
+#DONE Step 01. Next [] - Note beside.					 	AUTO
+^(\d?\w*\.?\s\d*:\d*)(\d)(\s\[\d\])
+<p><nsup>$2</nsup> <b>$1<sup>$2</sup><b>$3    </b>
+
+e.g. Gen. 1:12 [] Note beside.
+
+
+#DONE Step 02. Next Word Note Only - Note below. 					AUTO
+^(\d?\w*\.?\s+\d*:\d*)(\d)(\s*\D+)\n(\s{2}\w+)
+<p><nsup>$2</nsup> <b>$1<sup>$2</sup><b>$3</b>\n$4
+
+e.g. Acts 1:12 Theophilus
+  Note below.
+
+
+# Result:
+Acts 1:12 Theophilus	<p><nsup>2</nsup> <b>Acts 1:1<sup>2</sup><b> Theophilus</b>
+Rom. 1:121 Theophilus	<p><nsup>1</nsup> <b>Rom. 1:12<sup>1</sup><b> Theophilus</b>
+1Cor. 12:12 Theophilus	<p><nsup>2</nsup> <b>1Cor. 12:1<sup>2</sup><b> Theophilus</b>
+Acts 12:121 Theophilus	<p><nsup>1</nsup> <b>Acts 12:12<sup>1</sup><b> Theophilus</b>
+
+
+# Step 03. Next Word Ref Only. --e.g. small b 								1by1
+^(\d?\w{2,3}\s+\d+:\d+)(.)(\s+\w+)(\s+\w+.)?(\s+\d?)[A-z]{2,3}(\x20+)\d+:\d+[a-z]?(;|,|-)?(.*)\n(?!(^\s+))
+<p><nsup>$2</nsup> <b>$1<sup>$2</sup><b>$3    </b>$4\n
+
+e.g. Act 12:12b Theophilus Gen 1:2; 3Ab 2:5a; Gen 1:10-12, 18, 21-25, 31; 3Ab 2:5a; 1:9b, 22-23; 1:22-23c, 9; 2:22-23, 24-25
+Act 1
+
+
+# Step 04. Ref / Ref + Note: 	1by1
+^(\b(\d?)(\s?)\w{2,}(\.?)\s+\d(\d)?:\d(\d)?)\s-\s(.*(\d\d))
+^(\d?\w+\s\d*:\d\d)(\d)([a-z]?)(\s*\w+(-?\w+)?)(\s*(\d)?[A-z]{2,3}(\x20\d+:\d+[a-z]?(;|,|-)?)(.*))\n(\s{2}\w+)
+<p><nsup>$2$3</nsup> <b>$1<sup>$2$3</sup><b>$4    </b>$6\n$11
+
+e.g. Acts 1:121a Theophilus  cf. Luke 1:1
+     Acts 1:12a Theophilus cf. Luke 1:1
+
+Acts 1:12a Theophilus		<p><nsup>2</nsup> <b>Acts 1:1<sup>2</sup><b> Theophilus</b>
+Rom. 1:121a Theophilus		<p><nsup>1</nsup> <b>Acts 1:12<sup>1</sup><b> Theophilus</b>
+1Cor. 12:12a Theophilus		<p><nsup>2</nsup> <b>Acts 12:1<sup>2</sup><b> Theophilus</b>
+Acts 12:125a Theophilus		<p><nsup>5</nsup> <b>Acts 12:12<sup>5</sup><b> Theophilus</b>
+
+
+ #The unsolved problem above: 
+ #	Not making the difference between a verse with note and one without.
+#***Case 01. Has a note and reference:
+ #Acts 2:1  2a Theophilus   Here is the reference.
+ #Here is the note.
+#***Case 02. Has only a reference after the verse:
+ #Acts 2:12  a Theophilus   Here is the reference.
+
+_____________________________________________________________
+#Step 05. Make links references within the notes: 		AUTO
+1.  Find    (\n)
+    Replace $1$1
+
+2. FIND.1:		(?x-i) (?<=\x20+) \(? ((\d+)? [A-z]+) (\x20+\d+:\d+ [a-z]? (-\d+ [a-z]?)? (,\x20+\d+ (-\d+[a-z]?)?)? (,\x20+\d+[a-z]?)? [;)\.] ) {2,}
+   Replace.1:	$0@\1@\n
+
+3. FIND.2: 		(?x-is) ; (?= .+ [;)] @ ( (\d)?\u\l+ ) @ ) | @ .+? @
+   Replace.2:	?1;\x20\1
+
+4. Find    ^(\n)
+   Replace \r\n
+
+5. Find    (?<=(.))\n
+   Replace nothing
+
+6. Find    \r
+   Replace \n
+
+# Result:			  
+# I need is to find this:
+text Abc 2:5a; 24:51d, 53; 1:9b, 22-23; 1:22-23c, 9; 1:22-23, 24-25;
+text (Abc 2:5a; 24:51d, 53; 1:9b, 22-23; 1:22-23c, 9; 1:22-23, 24-25)
+text (3Ab 2:5a; 24:51d, 53; 1:9b, 22-23; 1:22-23c, 9; 1:22-23, 24-25)
+text 3Ab 2:5a; 24:51d, 53; 1:9b, 22-23; 1:22-23c, 9; 1:22-23, 24-25;
+
+# and to be replaced with this:
+text Abc 2:5a; Abc 24:51d, 53; Abc 1:9b, 22-23; Abc 1:22-23c, 9; Abc 1:22-23, 24-25;
+text (Abc 2:5a; Abc 24:51d, 53; Abc 1:9b, 22-23; Abc 1:22-23c, 9; Abc 1:22-23, 24-25)
+text (3Ab 2:5a; Abc 24:51d, 53; Abc 1:9b, 22-23; Abc 1:22-23c, 9; Abc 1:22-23, 24-25)
+text 3Abc 2:5a; Abc 24:51d, 53; Abc 1:9b, 22-23; Abc 1:22-23c, 9; Abc 1:22-23, 24-25;
+
+
+# Step 06. Make links wintin the body of notes:  1by1
+Find:		((?x-i) (?<=\x20|\() ((\d+)? [A-z]+) (\x20\d+:\d+ [a-z]? (-\d+ [a-z]?)? (,\x20\d+ (-\d+[a-z]?)?)? (,\x20\d+[a-z]?)? ))
+Replace:	<link b="$1">$1</>
+
+# To make sure the note remains below, after the last link insert this:
+Find:<link b="Rom 1:1">Rom 1:1</>
+Replace:     <p><rsup></rsup>
+
+# Eliminate small 'b' from verse because BW doesn't know it:
+Find links 'b':  ((\d+)[a-z](</>)
+Replace $1</>
+Find links 'b':  ((\d+)[a-z](-)
+Replace $1-
+
+# Result:
+Luke 22:51a;		<link b="Luke 22:51">Luke 22:51</>; 
+Matt. 24:51, 53; 	<link b="Matt. 24:51, 53">Matt. 24:51, 53</>;
+Rom. 1:9, 22-23; 	<link b="Rom. 1:9, 22-23">Rom. 1:9, 22-23</>; 
+Rom. 1:22-23, 9;	<link b="Rom. 1:22-23, 9">Rom. 1:22-23, 9</>;
+1Cor. 1:12-23, 24-25;	<link b="1Cor. 1:12-23, 24-25">1Cor. 1:12-23, 24-25</>;	
+_____________________________________________________________
+
+# Step 07. Join Verses to the notes, use bash:  #working on .07
+
+1. Split a chapter of 30 verses into 30 files with a verse each:
+cat Rom 1.txt  | awk '{ print $0 > "Rom. "NR".txt"}
+
+2. append each file with each verse to a specific line in the notes file.
+sed -i -e '/*1/s/$/ Rom 1:1 The epistle lui Pavel to romans./' /home/spiridon/Downloads/note
+OR 
+# try to append notes to each file verse (not so good)
+cat Rom 1:1notes.txt >> Rom 1:1.txt
+cat Rom 1:1 text_notes >> Rom 1.txt
+
+
+
+
+_____________________________________________________________
+# Step 07. Change in all books 1 Tim. in BW language, as 1Ti			#DONE
+# Step 08. Change finding references only NOT at the start of line.		#DONE
+# Step 09. Solve end of line continuation to the next line. 			#DONE.
+# Step 10. Solve finding in the text: from 1:2b—2:3 by 			 	#Not Started Yet
+	- After the inseration of links, change back from John to John
+	- "b" should to be included
+	- "—2:3" should be included
+# Step 11. Implement also expression for links with letter at the end:  John 6:63a	 #DONE
+# Step 12. Include Gen. 1:11 [1]   in footnotes.  				#DONE.
+# Step 13. Include Gen. 1:11a heavens  in footnotes.  				#DONE.
+# Step 14. Include  (see note 71 in Deut. 8) (See note 171 in ch. 22) of Genesis :)					#Not Started Yet
