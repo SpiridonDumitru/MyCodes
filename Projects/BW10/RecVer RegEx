@@ -1,0 +1,46 @@
+00000 00000 00000 00000 00000 00000
+# purificarea textului din iSilo
+
+---> matches verses 5 10 15 and places a . ar the end
+^(\d\s\d+)+(\r\n)     
+$1.$2
+
+
+---> matches from Author until before the line starting with 1:1[space]
+(?s)Author:.*?(?!<\.\R)(?=^1:1\s)
+nothing
+
+---> matches from Subject until before the line ending in .
+(?s-i)^Subject[^.]+\R
+nothing
+
+
+---> removing the line ending in .
+^(\d\s\d+\.)+(\r\n)
+nothing
+
+
+---> matches chapters 1 2 3 4 5 until the start of the first chapter and verses 1:1
+^Ch.[\s\d+\s]*\r\n
+nothing
+
+
+---> matches the name of the book/gospel/epistle etc.
+^[A-Z\s]+\r\n
+nothing
+
+---> matches starting with capital letters until \d+:\d+\s  (1:2)
+^(\w+)\.\s.*?(?!<\.\R)(?=^\d+:\d+\s)
+
+
+---> matches starting with parantheses until \d+:\d+\s  (1:2)
+^[(]\w+[)]\s.*?(?!<\.\R)(?=^\d+:\d+\s)
+
+
+---> matches starting with vv.1-2
+^\w+\.\d+\-\d+\r\n
+
+
+---> add Mat  to 1:1 
+(^\d+)(:\d+\s+)
+Mat $1$2
