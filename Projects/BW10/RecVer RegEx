@@ -44,3 +44,9 @@ nothing
 ---> add Mat  to 1:1 
 (^\d+)(:\d+\s+)
 Mat $1$2
+
+
+---> separates note number from verse number
+:%s/\(^Rom\s\d\(d\)\?:\d\)\(\d\w\)\(.*\)\(\n\)\(^\s\)/\1  note \2\3\4\5  /g
+
+
