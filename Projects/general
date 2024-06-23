@@ -5,7 +5,8 @@
 rsync -raz /home/oem/00/ /home/oem/Dropbox/rsyncPC/00/
 
 #2 Update remaining and delete those not in the source folder
-#rsync -a --delete /home/oem/Min2/Cwwl/ /home/oem/Dropbox/rsyncPC/CWWL/   
+# rsync -a --delete /home/oem/Min2/Cwwl/ /home/oem/Dropbox/rsyncPC/CWWL/   
+# rsync -a --delete /home/d/Work/MyNotes/ spiridon@172.232.207.99:/home/spiridon/MyNotes
 
 
 
