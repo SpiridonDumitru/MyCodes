@@ -14,4 +14,4 @@ scp -P 8022 E:\0\rent.md u0_a266@192.168.1.67:/data/data/com.termux/files/home
 
 
 # ssh from Win PC into termux Android
- ssh o0_a266@192.168.1.67 -p 8022pt
+ ssh o0_a266@192.168.1.67 -p 8022
