@@ -8,6 +8,7 @@ pkg install upgrade
 # Copy files from Win PC into Termux Android via scp
 pkg install iproute2
 ip addr show
+passwd   # to setup a password 
 scp -P 8022 E:\0\rent.md u0_a266@192.168.1.67:/data/data/com.termux/files/home
 
 
