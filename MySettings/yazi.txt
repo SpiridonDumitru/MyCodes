@@ -1,0 +1,32 @@
+Step 1: Install Rust
+First, you need to have Rust installed on your system. You can install Rust using rustup, which is the recommended way to install Rust.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+Follow the on-screen instructions to complete the installation. After installation, you may need to restart your terminal or run:
+source $HOME/.cargo/env
+
+
+Step 2: Install Dependencies
+You may need to install some additional dependencies. Run the following command:
+sudo apt update
+sudo apt install build-essential git
+
+
+Step 3: Clone the Yazi Repository
+Next, clone the Yazi repository from GitHub:
+git clone https://github.com/sxyazi/yazi.git
+cd yazi
+
+
+Step 4: Build Yazi
+Now, you can build Yazi using Cargo, which is the Rust package manager:
+cargo build --release
+
+
+Step 5: Install Yazi
+After the build process is complete, you can install Yazi by running:
+sudo cp target/release/yazi /usr/local/bin/
+
+
+Start:
+yazi
