@@ -116,7 +116,50 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+
+
+#alias k='cd ~/.config/kitty/themes && fzf --preview 'head -40 {} && kitty @ --to unix:/tmp/kitty set-colors -a -c {}'; cd -'
+
+# === Hide Name and User in Terminal ==============================================================
+#export PS1='\n\W 🔴 \$ '
+#export PS1='\n\W 🟡 \$ '
+
+
+# === hyperlink auto kitty test ===============================================================
+# ls --hyperlink=auto
+
+# cd Tab search without case
+# =============================================================
+set completion-ignore-case On
+
+
+# === set default text editor ===============================================================
+export VISUAL=vim;
+export EDITOR=vim;
+
+
+# === set nnn config ===============================================================
+export NNN_PLUG='o:fzopen;c:fcd;j:jump;p:preview-tui;t:preview-tabbed;i:imgview;d:dragd;f:finder'
+export NNN_BMS="h:~/;0:~/0.m/;v:~/Videos/;D:~/Downloads/;d:~/Documents/;a:~/Music/"
+export NNN_USE_EDITOR=1
+export NNN_FIFO="$HOME/.nnn/fifo"
+export NNN_COLORS='1267'
+
+# === set terminal marker =========================================================================
+# export MARKER_KEY_GET='\C-@'
+# [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+
+# === set fzf config =========================================================================
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#. "$HOME/.cargo/env"
+export PATH="$HOME/.local/bin:$PATH"
+
+
+
 #My Aliases
 alias 0="cd ~/00/"
 alias hg="kitty +kitten hyperlinked_grep"
 alias r='ranger'
+alias d='docker ps -a'
+alias g='grep -Prin'
