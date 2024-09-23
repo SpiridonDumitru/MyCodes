@@ -1,0 +1,11 @@
+To install using the command line:
+
+1. First, setup flatpak on your system, then:
+$ flatpak install flathub org.wezfurlong.wezterm
+
+
+2. and then run:
+$ flatpak run org.wezfurlong.wezterm
+
+3. You may wish to define an alias for convenience:
+$ alias wezterm='flatpak run org.wezfurlong.wezterm'
