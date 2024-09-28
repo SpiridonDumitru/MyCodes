@@ -1,11 +1,11 @@
 # === Install docker for Windows ===
-
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
 
-# === create compose.yaml file: ===
 
+
+# === create compose.yaml file: ===
 services:
   windows:
     image: dockurr/windows
@@ -22,6 +22,7 @@ services:
       - 3389:3389/udp
     stop_grace_period: 2m
 
-  
+
+
 #  ===From within folder with .yaml file: ===
 docker-compose up -d
