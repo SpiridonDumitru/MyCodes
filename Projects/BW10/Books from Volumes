@@ -17,9 +17,7 @@ sed -i 's/designator//' *.txt
 
 1. Split Volume into Books
 
-
-Copy Code
-awk '/designator/{line="book"++i;}{print > line;}' volumefile
+ awk '/designator/{line="book"++i;}{print > line;}' volumefile
 awk: This command processes the input file line by line.
 /designator/: This is a pattern that matches lines containing the word "designator". When such a line is found, the following action is executed.
 line="book"++i;: This creates a variable line that is assigned a name based on the current value of i, which is incremented each time a line with "designator" is found. The first book will be named book1, the second book2, and so on.
@@ -29,9 +27,7 @@ volumefile: This is the input file that contains the text to be processed.
 
 2. Rename Book Files with the Name of the First Line
 
-
-Copy Code
-awk 'FNR==1 {file=$0} {print > (file".txt")}' bookfiles*
+ awk 'FNR==1 {file=$0} {print > (file".txt")}' bookfiles*
 FNR==1: This condition checks if the current record number (line number) is 1, meaning it is the first line of the current file being processed.
 {file=$0}: When the first line is encountered, it assigns the entire line (the name of the book) to the variable file.
 {print > (file".txt")}: This prints the current line to a file named after the first line, with a .txt extension. This means all lines from the book file will be written to a file named after the first line of that book.
@@ -40,9 +36,7 @@ bookfiles*: This indicates that the command will process all files that match th
 
 3. Delete the Designator from All .txt Files
 
-
-Copy Code
-sed -i 's/designator//' *.txt
+ sed -i 's/designator//' *.txt
 sed: This is a stream editor used for parsing and transforming text.
 -i: This option tells sed to edit files in place, meaning the changes will be applied directly to the files without creating a backup.
 's/designator//': This is a substitution command that searches for the word "designator" and replaces it with nothing (effectively deleting it).
