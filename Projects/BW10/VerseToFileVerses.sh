@@ -5,7 +5,7 @@ awk '{fname=$1" "$2;}NR>0
  RcV
 
 
-==========================
+===========================
 
 The provided `awk` command is a script that processes a file named `RcV` and creates separate files for each verse based on the first two fields of each line. Let's break down the command step by step:
 
