@@ -15,8 +15,8 @@ sed -i 's/designator//' *.txt
 
 ===========================================
 
-Step 1: Split Volume into Books
-bash
+1. Split Volume into Books
+
 
 Copy Code
 awk '/designator/{line="book"++i;}{print > line;}' volumefile
@@ -27,8 +27,8 @@ line="book"++i;: This creates a variable line that is assigned a name based on t
 volumefile: This is the input file that contains the text to be processed.
 
 
-Step 2: Rename Book Files with the Name of the First Line
-bash
+2. Rename Book Files with the Name of the First Line
+
 
 Copy Code
 awk 'FNR==1 {file=$0} {print > (file".txt")}' bookfiles*
@@ -38,8 +38,8 @@ FNR==1: This condition checks if the current record number (line number) is 1, m
 bookfiles*: This indicates that the command will process all files that match the pattern bookfiles*.
 
 
-Step 3: Delete the Designator from All .txt Files
-bash
+3. Delete the Designator from All .txt Files
+
 
 Copy Code
 sed -i 's/designator//' *.txt
@@ -49,7 +49,7 @@ sed: This is a stream editor used for parsing and transforming text.
 *.txt: This indicates that the command will apply to all .txt files in the current directory.
 
 
-Step 4: Repeat the Process for Chapters from Books
+4. Repeat the Process for Chapters from Books
 The comment #Repeat the process for chapters from books. suggests that a similar process should be followed to split the newly created book files into chapters. This would likely involve using a similar awk command to identify chapter designators within the book files and then creating separate chapter files accordingly.
 
 
