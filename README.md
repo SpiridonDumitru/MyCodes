@@ -1,2 +1,1 @@
-MyCodes  --  
-different parts of one bigger project. A work in progress.
+MyCodes -- This is a work in progress.
