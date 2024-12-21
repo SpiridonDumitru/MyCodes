@@ -99,10 +99,9 @@
 
 ```bash
 `git add .
-`git commit -m $'My First Commit files'
-`git push origin main
-`Username for 'https://github.com':    *spiridondumitru@outlook.com*
-`Password for 'https://spiridondumitru@outlook.com@github.com': *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*
+`git commit -m $'my Commit files'
+`git push
+`git status
 ```
 
 ------------------------------------------------
