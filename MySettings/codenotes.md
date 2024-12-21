@@ -99,7 +99,7 @@
 
 ```bash
 `git add .
-`git commit -m $'my Commit files'
+`git commit -m "my Commit files"
 `git push
 `git status
 ```
