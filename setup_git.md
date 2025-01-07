@@ -37,6 +37,7 @@
 2. git remote -v
 3. remote ULR setup to HTTPS: git remote set-url origin https://github.com/username/repository.git
 4. Now you can use PAT instead of password.
+ 
 ---
 1. git add .
 2. git commit -m "update for today"
@@ -55,6 +56,10 @@
 09. change git to use SSH instead of HTTPS: git remote set-url origin git@github.com:username/repository.git
 10. test your ssh conection: ssh -T git@github.com
 11. everything is correct if: Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+12. git clone git@github.com:username/repo.git "Use the green "Code" button and selecting "SSH"
+13. git config --global user.email "your email"
+14. git config --global user.name "your git user name"
+ 
 ---
 1. git add .
 2. git commit -m "update for today"
