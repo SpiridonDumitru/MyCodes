@@ -1,6 +1,6 @@
 	# SETUP GIT
+	
 	# setup git: use PAT
-
 1. Make sure you have Personal Access Token for git authentication - PAT
 {{{    Log in to GitHub:
         Go to GitHub and log in to your account.
