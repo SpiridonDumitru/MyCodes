@@ -39,6 +39,7 @@
 4. Now you can use PAT instead of password.
  
 ---
+
 1. git add .
 2. git commit -m "update for today"
 3. git push
@@ -46,24 +47,41 @@
 
 	# setup git: use SSH
 01. Setup Git Credential Manager: git config --global credential.helper manager-core
+
 02. generate SSH key pair: ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
 03. eval "$(ssh-agent -s)"
+
 04. ssh-add ~/.ssh/id_rsa
+
 05. copy key: cat ~/.ssh/id_rsa.pub
+
 06. go to: https://github.com/settings/keys
+
 07. paste your public key  + give it a title
+
 08a. mkdir LS, then git init from within LS
+
 08b. export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+
 08c. git remote add origin git@github.com:SpiridonDumitru/LS.git
+
 08c. git remote set-url origin git@github.com:SpiridonDumitru/LS.git
+
 08d. check current remote url: git remote -v
+
 09. change git to use SSH instead of HTTPS: 
 git remote set-url origin git@github.com:username/repository.git
+
 10. test your ssh conection: 
 ssh -T git@github.com
+
 11. everything is correct if: Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+
 12. git clone git@github.com:username/repo.git "Use the green "Code" button and selecting "SSH"
+
 13. git config --global user.email "your email"
+
 14. git config --global user.name "your git user name"
  
 ---
