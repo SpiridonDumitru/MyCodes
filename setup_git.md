@@ -52,9 +52,15 @@
 05. copy key: cat ~/.ssh/id_rsa.pub
 06. go to: https://github.com/settings/keys
 07. paste your public key  + give it a title
-08. check current remote url: git remote -v
-09. change git to use SSH instead of HTTPS: git remote set-url origin git@github.com:username/repository.git
-10. test your ssh conection: ssh -T git@github.com
+08a. mkdir LS, then git init from within LS
+08b. export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+08c. git remote add origin git@github.com:SpiridonDumitru/LS.git
+08c. git remote set-url origin git@github.com:SpiridonDumitru/LS.git
+08d. check current remote url: git remote -v
+09. change git to use SSH instead of HTTPS: 
+git remote set-url origin git@github.com:username/repository.git
+10. test your ssh conection: 
+ssh -T git@github.com
 11. everything is correct if: Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 12. git clone git@github.com:username/repo.git "Use the green "Code" button and selecting "SSH"
 13. git config --global user.email "your email"
