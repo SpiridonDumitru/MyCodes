@@ -82,6 +82,23 @@ set foldtext=getline(v:foldstart)
 	nnoremap <leader>k <c-w>k
 	nnoremap <leader>l <c-w>l
 
+	" MyHarpoon 
+	" Add current file path to the end of ~/.vim-harpoon
+	nnoremap <leader>a :w <CR>:call writefile([expand('%:p')], expand('~/.vim-harpoon'), 'a')<CR>:echo 'Appended ' . expand('%:t') . ' to Harpoon list'<CR>
+	" Open the harpoon list file for viewing/editing
+	nnoremap <leader>e :e ~/.vim-harpoon<CR>
+
+	" Go to 1st file of ~/.vim-harpoon
+	nnoremap <leader>1 :e ~/.vim-harpoon <CR>gggf
+	" Go to 2nd file of ~/.vim-harpoon
+	nnoremap <leader>2 :e ~/.vim-harpoon <CR>ggjgf
+	" Go to 3rd file of ~/.vim-harpoon
+	nnoremap <leader>3 :e ~/.vim-harpoon <CR>gg2jgf
+	" Go to 4th file of ~/.vim-harpoon
+	nnoremap <leader>4 :e ~/.vim-harpoon <CR>gg3jgf
+	" Go to 5th file of ~/.vim-harpoon
+	nnoremap <leader>5 :e ~/.vim-harpoon <CR>gg4jgf
+
 
 " }}}
 
