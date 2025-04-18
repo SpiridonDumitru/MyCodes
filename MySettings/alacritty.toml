@@ -1,0 +1,28 @@
+[window]
+decorations = "none"
+opacity = 0.85
+
+[window.padding]
+x = 15
+y = 15
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[font]
+size = 15.0
+
+[colors.primary]
+background = "#202734"
+foreground = "#CBCCC6"
+
+[colors.normal]
+black = "#191E2A"
+red = "#FF3333"
+green = "#BAE67E"
+yellow = "#FFA759"
+blue = "#73D0FF"
+magenta = "#FFD580"
+cyan = "#95E6CB"
+white = "#C7C7C7"
