@@ -86,7 +86,7 @@ set foldtext=getline(v:foldstart)
 " }}}
 
 " {{{ === BASIC STYLING 
-"=== BASIC STYLING ========================================
+"===BASIC STYLING ========================================
 highlight Comment cterm=italic
 highlight Cursorline ctermbg=Black cterm=bold ctermfg=White
 highlight CursorlineNr ctermbg=Black cterm=bold ctermfg=Red
