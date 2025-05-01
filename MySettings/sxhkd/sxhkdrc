@@ -1,0 +1,28 @@
+hyper+ F1
+	/snap/bin/ghostty >/dev/null 2>&1 &
+
+hyper + F2
+      alacritty
+
+hyper + F3
+      kitty
+
+super + F4
+    xdotool getactivewindow windowclose
+
+hyper + F5
+    xfce4-terminal
+
+super + w 
+	/usr/share/librewolf/librewolf 
+
+super + z
+	flatpak run app.zen_browser.zen >/dev/null 2>&1 &
+
+# Win key + T opens telegram
+hyper + t
+	/home/d/Downloads/Telegram/Telegram
+
+hyper + XF86HomePage ; {f,g}
+	{thunar, geany}
+
