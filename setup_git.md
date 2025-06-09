@@ -51,6 +51,9 @@
 02. generate SSH key pair: ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
 03. eval "$(ssh-agent -s)"
+*in fish maybe working:
+set -Ux SSH_AUTH_SOCK (ssh-agent -c | grep SSH_AUTH_SOCK | sed -e 's/^setenv/set -x/' -e 's/;/;/g')
+*
 
 04. ssh-add ~/.ssh/id_rsa
 
