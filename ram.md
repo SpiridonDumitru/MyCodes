@@ -306,4 +306,31 @@ Recomandări:
     - Viteza: Laptopul tău suportă RAM cu o viteză de 667 MT/s (megatransferuri pe secundă). Este bine să alegi module care au această viteză sau o viteză mai mare, dar care sunt compatibile cu laptopul.
 
     - Lungimea modulelor: De obicei, modulele SODIMM au o lungime standard, dar este bine să verifici specificațiile produsului pentru a te asigura că se potrivesc în sloturile laptopului tău.
+    
+ # word wrap on grep search   
+    return {
+  "nvim-telescope/telescope.nvim",
+  opts = function(_, opts)
+    local previewers = require("telescope.previewers")
+    local conf = require("telescope.config").values
+
+    -- Wrap lines in previewer
+    opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
+      preview = {
+        -- This just sets the previewer; wrapping is done in the previewer itself
+      },
+      previewer = previewers.new_termopen_previewer({
+        define_preview = function(self, entry, status)
+          previewers.buffer_previewer_maker(entry, self, status)
+          vim.schedule(function()
+            vim.api.nvim_buf_set_option(self.state.bufnr, "wrap", true)
+            vim.api.nvim_buf_set_option(self.state.bufnr, "linebreak", true)
+          end)
+        end,
+      }),
+    })
+
+    return opts
+  end,
+}
 
