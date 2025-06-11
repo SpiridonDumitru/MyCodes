@@ -2,7 +2,7 @@
 # Gmail IMAP Settings
 ########################
 set imap_user = "spiridonsdan@gmail.com"
-set imap_pass = "App_password"
+set imap_pass = "cywsrldkolgimgsb"
 set folder = "imaps://imap.gmail.com/"
 set spoolfile = "+INBOX"                # Main inbox folder
 set record = "+[Gmail]/Sent Mail"       # Where to save sent messages (Gmail standard)
@@ -13,7 +13,7 @@ set trash = "+[Gmail]/Trash"             # Gmail trash folder
 # Gmail SMTP Settings
 ########################
 set smtp_url = "smtp://spiridonsdan@gmail.com@smtp.gmail.com:587/"
-set smtp_pass = "App_password"
+set smtp_pass = "cywsrldkolgimgsb"
 
 ########################
 # UI Preferences
@@ -38,6 +38,8 @@ set sidebar_visible = yes
 set sidebar_width = 30
 set sidebar_short_path = yes
 set sidebar_format = "%B%?F? [%F]?%* "
+set date_format="%d %b %Y"  # e.g., 11 Jun 2025
+set index_format=" %4C %Z    %{%d %b %Y}    %-40.40F %.60s"
 set mail_check = 60  # Check for new mail every 60 seconds
 
 # Show these Gmail mailboxes in sidebar
@@ -62,10 +64,17 @@ color hdrdefault blue default
 color quoted green default
 color attachment brightmagenta default
 color indicator brightyellow default
+color index red default ~D
+color index blue default "^[NDOD! ] +[0-9]{2} [A-Z][a-z]{2} 20[0-9]{2}"
+
+
 
 # --- Helpful navigation hints ---
 
-# To open mailbox list (sidebar), press `b` in the index view.
+# <C-B> go up to the next box
+# <C-D> go down to the next box
+# <C-E> open the box
+# To open mailbox list (sidebar), press `b` in the index view. Or press `c` and write: INBOX, i.e.
 # Navigate mailboxes with arrow keys or `j`/`k` and press Enter to open.
 # To exit mailbox or message view, press `q`.
 # Use `n` and `p` to move to next and previous messages.
