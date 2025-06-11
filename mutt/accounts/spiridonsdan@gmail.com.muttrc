@@ -1,0 +1,25 @@
+# Gmail IMAP (receive)
+set from = "spiridonsdan@gmail.com"
+set realname = "Spiridon Dumitru"
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set record = "[Gmail]/Sent Mail"
+set postponed = "[Gmail]/Drafts"
+set trash = "[Gmail]/Trash"
+set imap_user = "spiridonsdan@gmail.com"
+set imap_pass = "cywsrldkolgimgsb"
+
+# SMTP (send)
+set smtp_url = "smtp://spiridonsdan@gmail.com@smtp.gmail.com:587/"
+set smtp_pass = "cywsrldkolgimgsb"
+
+# Cache and certs
+set header_cache = "~/.cache/mutt/headers"
+set message_cachedir = "~/.cache/mutt/bodies"
+set certificate_file = "~/.config/mutt/certificates"
+
+# UI and misc
+set editor = "nvim"
+set charset = "utf-8"
+set ssl_force_tls = yes
+set sidebar_visible = yes

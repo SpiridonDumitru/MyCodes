@@ -1,0 +1,74 @@
+########################
+# Gmail IMAP Settings
+########################
+set imap_user = "spiridonsdan@gmail.com"
+set imap_pass = "App_password"
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"                # Main inbox folder
+set record = "+[Gmail]/Sent Mail"       # Where to save sent messages (Gmail standard)
+set postponed = "+[Gmail]/Drafts"       # Where to save drafts
+set trash = "+[Gmail]/Trash"             # Gmail trash folder
+
+########################
+# Gmail SMTP Settings
+########################
+set smtp_url = "smtp://spiridonsdan@gmail.com@smtp.gmail.com:587/"
+set smtp_pass = "App_password"
+
+########################
+# UI Preferences
+########################
+set from = "spiridonsdan@gmail.com"
+set realname = "Spiridon Dumitru"
+set editor = "nvim"
+set charset = "utf-8"
+set ssl_force_tls = yes
+
+########################
+# Mail Caching
+########################
+set header_cache = "~/.cache/neomutt/headers"
+set message_cachedir = "~/.cache/neomutt/bodies"
+set certificate_file = "~/.config/neomutt/certificates"
+
+########################
+# Sidebar Setup
+########################
+set sidebar_visible = yes
+set sidebar_width = 30
+set sidebar_short_path = yes
+set sidebar_format = "%B%?F? [%F]?%* "
+set mail_check = 60  # Check for new mail every 60 seconds
+
+# Show these Gmail mailboxes in sidebar
+# Note: Gmail uses "[Gmail]/Sent Mail" with a space, not "Sent"
+mailboxes \
+    +INBOX \
+    "+[Gmail]/Sent Mail" \
+    "+[Gmail]/Trash" \
+    "+[Gmail]/Drafts"
+
+# Sidebar navigation keys
+bind index \CB sidebar-prev
+bind index \CD sidebar-next
+bind index \CE sidebar-open
+
+########################
+# Colors (optional)
+########################
+color index green default ~N
+color status yellow default
+color hdrdefault blue default
+color quoted green default
+color attachment brightmagenta default
+color indicator brightyellow default
+
+# --- Helpful navigation hints ---
+
+# To open mailbox list (sidebar), press `b` in the index view.
+# Navigate mailboxes with arrow keys or `j`/`k` and press Enter to open.
+# To exit mailbox or message view, press `q`.
+# Use `n` and `p` to move to next and previous messages.
+# Tag all messages `T*`
+# Mark tagged messages for deletion: `;d`
+# Expunge (purge) deleted messages: `$`
