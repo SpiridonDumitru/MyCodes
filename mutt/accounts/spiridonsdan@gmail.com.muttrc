@@ -7,11 +7,11 @@ set record = "[Gmail]/Sent Mail"
 set postponed = "[Gmail]/Drafts"
 set trash = "[Gmail]/Trash"
 set imap_user = "spiridonsdan@gmail.com"
-set imap_pass = "cywsrldkolgimgsb"
+set imap_pass = ""
 
 # SMTP (send)
 set smtp_url = "smtp://spiridonsdan@gmail.com@smtp.gmail.com:587/"
-set smtp_pass = "cywsrldkolgimgsb"
+set smtp_pass = ""
 
 # Cache and certs
 set header_cache = "~/.cache/mutt/headers"
