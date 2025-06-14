@@ -2,7 +2,7 @@
 # Gmail IMAP Settings
 ########################
 set imap_user = "spiridonsdan@gmail.com"
-set imap_pass = "cywsrldkolgimgsb"
+set imap_pass = ""
 set folder = "imaps://imap.gmail.com/"
 set spoolfile = "+INBOX"                # Main inbox folder
 set record = "+[Gmail]/Sent Mail"       # Where to save sent messages (Gmail standard)
@@ -13,7 +13,7 @@ set trash = "+[Gmail]/Trash"             # Gmail trash folder
 # Gmail SMTP Settings
 ########################
 set smtp_url = "smtp://spiridonsdan@gmail.com@smtp.gmail.com:587/"
-set smtp_pass = "cywsrldkolgimgsb"
+set smtp_pass = ""
 
 ########################
 # UI Preferences
