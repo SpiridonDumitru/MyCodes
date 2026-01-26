@@ -53,15 +53,17 @@
 03. eval "$(ssh-agent -s)"
 *in fish maybe working:
 set -Ux SSH_AUTH_SOCK (ssh-agent -c | grep SSH_AUTH_SOCK | sed -e 's/^setenv/set -x/' -e 's/;/;/g')
+OR
+set SSH_AUTH_SOCK /home/d/.ssh/agent/s.o0nre4cNyD.agent.1jkQrxDQZB
 *
 
-04. ssh-add ~/.ssh/id_rsa
+5. ssh-add ~/.ssh/id_rsa
 
-05. copy key: cat ~/.ssh/id_rsa.pub
+6. copy key: cat ~/.ssh/id_rsa.pub
 
-06. go to: https://github.com/settings/keys
+7. go to: https://github.com/settings/keys
 
-07. paste your public key  + give it a title
+8. paste your public key  + give it a title
 
 08a. mkdir LS, then git init from within LS
 
