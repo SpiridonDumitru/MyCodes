@@ -23,20 +23,20 @@
 
 ;; ALIAS      -----------------------------------------------------------------------
 
-
 (defalias
-  ecap esc            ;; Caps devine Esc
-  bsp  bspc           ;; Alias pentru Backspace
-  
+  ecap esc
+  bsp  bspc
+
   tobase (layer-switch base)
   toapp  (layer-switch apps-layer)
   tomac  (layer-switch macros-layer)
 
-  rng (cmd-button "sudo -u d DISPLAY=:0 alacritty -e ranger")
-  fd (cmd-button "sudo -u d DISPLAY=:0 firedragon")
-  sb (cmd-button "sudo -u d DISPLAY=:0 chromium")
-  srch (cmd-button "sudo -u d DISPLAY=:0 alacritty -e ssh d@192.168.0.105")
-  prox (cmd-button "sudo -u d DISPLAY=:0 alacritty -e ssh root@192.168.0.194")
+  rng  (cmd-button "env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus alacritty -e ranger")
+  tn   (cmd-button "env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus thunar")
+  fx   (cmd-button "env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus firefox-esr")
+  sb   (cmd-button "env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus chromium")
+  srch (cmd-button "env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus alacritty -e ssh d@192.168.0.105")
+  prox (cmd-button "env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus alacritty -e ssh root@192.168.0.194")
 )
 
 ;; BASE       ------------------------------------------------------------------------
@@ -57,9 +57,9 @@
 (deflayer apps-layer
   @tobase _    _    _    _    _    _    _    _    _    _    _    _    _
   _       _    _    _    _    _    _    _    _    _    _    _    _    _
-  _       _    _    _    _   @rng  _    _    _    _  @prox  _    _    _
+  _       _    _    _  @rng  @tn   _    _    _    _  @prox  _    _    _
   _       _  @srch  _    _    _    _    _    _    _    _    _    _
-  _       _    _    _    _    @fd  @sb  _    _    _    _    @bsp      _
+  _       _    _    _    _    @fx  @sb  _    _    _    _    @bsp      _
   _       _    _              _              _    _    _    _    _    _    _    _
 )
 
