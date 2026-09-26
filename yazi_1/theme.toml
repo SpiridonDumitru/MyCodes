@@ -1,0 +1,511 @@
+#:schema https://yazi-rs.github.io/schemas/theme.json
+
+[flavor]
+dark = ""
+light = ""
+
+[app]
+overall = { bg = "#1e1e2e" }
+
+
+# ─────────────────────────────────────────────
+# Manager
+# ─────────────────────────────────────────────
+
+[mgr]
+
+cwd = { fg = "#89b4fa", bold = true }
+
+find_keyword = {
+    fg = "#f9e2af",
+    bold = true,
+    italic = true
+}
+
+find_position = {
+    fg = "#cba6f7",
+    bold = true
+}
+
+symlink_target = {
+    fg = "#94e2d5",
+    italic = true
+}
+
+
+# ─────────────────────────────────────────────
+# Markers
+# ─────────────────────────────────────────────
+
+marker_copied = {
+    fg = "#a6e3a1",
+    bg = "#a6e3a1"
+}
+
+marker_cut = {
+    fg = "#f38ba8",
+    bg = "#f38ba8"
+}
+
+marker_marked = {
+    fg = "#94e2d5",
+    bg = "#94e2d5"
+}
+
+marker_selected = {
+    fg = "#f9e2af",
+    bg = "#f9e2af"
+}
+
+
+# ─────────────────────────────────────────────
+# Counts
+# ─────────────────────────────────────────────
+
+count_copied = {
+    fg = "#1e1e2e",
+    bg = "#a6e3a1",
+    bold = true
+}
+
+count_cut = {
+    fg = "#1e1e2e",
+    bg = "#f38ba8",
+    bold = true
+}
+
+count_selected = {
+    fg = "#1e1e2e",
+    bg = "#f9e2af",
+    bold = true
+}
+
+
+# ─────────────────────────────────────────────
+# Borders
+# ─────────────────────────────────────────────
+
+border_symbol = "│"
+
+border_style = {
+    fg = "#45475a"
+}
+
+
+# ─────────────────────────────────────────────
+# Tabs
+# ─────────────────────────────────────────────
+
+[tabs]
+
+active = {
+    fg = "#1e1e2e",
+    bg = "#cba6f7",
+    bold = true
+}
+
+inactive = {
+    fg = "#a6adc8",
+    bg = "#313244"
+}
+
+sep_inner = {
+    open = " ",
+    close = " "
+}
+
+sep_outer = {
+    open = "",
+    close = ""
+}
+
+
+# ─────────────────────────────────────────────
+# Mode
+# ─────────────────────────────────────────────
+
+[mode]
+
+normal_main = {
+    fg = "#1e1e2e",
+    bg = "#cba6f7",
+    bold = true
+}
+
+normal_alt = {
+    fg = "#cba6f7",
+    bg = "#313244"
+}
+
+select_main = {
+    fg = "#1e1e2e",
+    bg = "#a6e3a1",
+    bold = true
+}
+
+select_alt = {
+    fg = "#a6e3a1",
+    bg = "#313244"
+}
+
+unset_main = {
+    fg = "#1e1e2e",
+    bg = "#f38ba8",
+    bold = true
+}
+
+unset_alt = {
+    fg = "#f38ba8",
+    bg = "#313244"
+}
+
+
+# ─────────────────────────────────────────────
+# Indicator
+# ─────────────────────────────────────────────
+
+[indicator]
+
+parent = {
+    fg = "#89b4fa",
+    bg = "#313244"
+}
+
+current = {
+    fg = "#cba6f7",
+    bg = "#313244",
+    bold = true
+}
+
+preview = {
+    fg = "#94e2d5",
+    bg = "#313244"
+}
+
+padding = {
+    open = "",
+    close = ""
+}
+
+
+# ─────────────────────────────────────────────
+# Status bar
+# ─────────────────────────────────────────────
+
+[status]
+
+overall = {
+    fg = "#cdd6f4",
+    bg = "#181825"
+}
+
+perm_sep = {
+    fg = "#45475a"
+}
+
+perm_type = {
+    fg = "#89b4fa"
+}
+
+perm_read = {
+    fg = "#a6e3a1"
+}
+
+perm_write = {
+    fg = "#f9e2af"
+}
+
+perm_exec = {
+    fg = "#f38ba8"
+}
+
+progress_label = {
+    fg = "#cdd6f4",
+    bold = true
+}
+
+progress_normal = {
+    fg = "#a6e3a1",
+    bg = "#313244"
+}
+
+progress_error = {
+    fg = "#f38ba8",
+    bg = "#313244"
+}
+
+
+# ─────────────────────────────────────────────
+# Which
+# ─────────────────────────────────────────────
+
+[which]
+
+border = {
+    fg = "#cba6f7"
+}
+
+cols = 3
+
+mask = {
+    bg = "#181825"
+}
+
+cand = {
+    fg = "#89b4fa",
+    bold = true
+}
+
+rest = {
+    fg = "#6c7086"
+}
+
+desc = {
+    fg = "#cba6f7"
+}
+
+separator = "  →  "
+
+separator_style = {
+    fg = "#45475a"
+}
+
+
+# ─────────────────────────────────────────────
+# Confirm
+# ─────────────────────────────────────────────
+
+[confirm]
+
+border = {
+    fg = "#cba6f7"
+}
+
+title = {
+    fg = "#cba6f7",
+    bold = true
+}
+
+body = {
+    fg = "#cdd6f4"
+}
+
+list = {
+    fg = "#bac2de"
+}
+
+btn_yes = {
+    fg = "#1e1e2e",
+    bg = "#a6e3a1",
+    bold = true
+}
+
+btn_no = {
+    fg = "#f38ba8"
+}
+
+btn_labels = [
+    " [Y]es ",
+    " [N]o "
+]
+
+
+# ─────────────────────────────────────────────
+# Spot
+# ─────────────────────────────────────────────
+
+[spot]
+
+border = {
+    fg = "#cba6f7"
+}
+
+title = {
+    fg = "#cba6f7",
+    bold = true
+}
+
+tbl_col = {
+    fg = "#89b4fa",
+    bold = true
+}
+
+tbl_cell = {
+    fg = "#cdd6f4"
+}
+
+
+# ─────────────────────────────────────────────
+# Notifications
+# ─────────────────────────────────────────────
+
+[notify]
+
+title_info = {
+    fg = "#a6e3a1",
+    bold = true
+}
+
+title_warn = {
+    fg = "#f9e2af",
+    bold = true
+}
+
+title_error = {
+    fg = "#f38ba8",
+    bold = true
+}
+
+
+# ─────────────────────────────────────────────
+# Pick
+# ─────────────────────────────────────────────
+
+[pick]
+
+border = {
+    fg = "#cba6f7"
+}
+
+active = {
+    fg = "#cba6f7",
+    bold = true
+}
+
+inactive = {
+    fg = "#a6adc8"
+}
+
+
+# ─────────────────────────────────────────────
+# Input
+# ─────────────────────────────────────────────
+
+[input]
+
+border = {
+    fg = "#cba6f7"
+}
+
+title = {
+    fg = "#cba6f7",
+    bold = true
+}
+
+value = {
+    fg = "#cdd6f4"
+}
+
+selected = {
+    fg = "#1e1e2e",
+    bg = "#cba6f7"
+}
+
+
+# ─────────────────────────────────────────────
+# Completion
+# ─────────────────────────────────────────────
+
+[cmp]
+
+border = {
+    fg = "#cba6f7"
+}
+
+active = {
+    fg = "#cdd6f4",
+    bg = "#313244"
+}
+
+inactive = {
+    fg = "#a6adc8"
+}
+
+icon_file = ""
+icon_folder = ""
+icon_command = ""
+
+
+# ─────────────────────────────────────────────
+# Tasks
+# ─────────────────────────────────────────────
+
+[tasks]
+
+border = {
+    fg = "#cba6f7"
+}
+
+title = {
+    fg = "#cba6f7",
+    bold = true
+}
+
+hovered = {
+    bg = "#313244"
+}
+
+
+# ─────────────────────────────────────────────
+# Help
+# ─────────────────────────────────────────────
+
+[help]
+
+border = {
+    fg = "#cba6f7"
+}
+
+chord = {
+    fg = "#89b4fa",
+    bold = true
+}
+
+action = {
+    fg = "#cdd6f4"
+}
+
+hovered = {
+    fg = "#cba6f7",
+    bold = true
+}
+
+
+# ─────────────────────────────────────────────
+# File types
+# ─────────────────────────────────────────────
+
+[filetype]
+
+rules = [
+
+    # Directories
+    { url = "*/", fg = "#89b4fa", bold = true },
+
+    # Images
+    { mime = "image/*", fg = "#f9e2af" },
+
+    # Video
+    { mime = "video/*", fg = "#cba6f7" },
+
+    # Audio
+    { mime = "audio/*", fg = "#f5c2e7" },
+
+    # Archives
+    { mime = "application/{zip,tar,gzip,7z,rar,xz,bzip2}", fg = "#fab387" },
+
+    # Documents
+    { mime = "application/pdf", fg = "#f38ba8" },
+
+    # Executables
+    { url = "*", is = "exec", fg = "#a6e3a1", bold = true },
+
+    # Symlinks
+    { url = "*", is = "link", fg = "#94e2d5" },
+
+    # Broken symlinks
+    { url = "*", is = "orphan", fg = "#f38ba8" },
+
+    # Empty files
+    { mime = "inode/empty", fg = "#6c7086" }
+]
