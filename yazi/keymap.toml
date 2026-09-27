@@ -14,6 +14,9 @@ prepend_keymap = [
     { on = "H", run = "back", desc = "Back" },
     { on = "L", run = "forward", desc = "Forward" },
 
+    { on = [ "g", "p" ], run = "cd ~/Projects", desc = "Go to Projects" },
+    { on = [ "g", "D" ], run = "cd ~/Documents", desc = "Go to Documents" },
+
 
     # ─────────────────────────────────────
     # Hidden files
@@ -92,7 +95,8 @@ prepend_keymap = [
     # Tabs
     # ─────────────────────────────────────
 
-    { on = "t", run = "tab_create --current", desc = "Create tab" },
+    #{ on = [ "t", "c" ], run = "tab_create --current", desc = "Create tab" },
+    { on = [ "t", "r" ], run = "tab_rename --interactive", desc = "Rename current tab" },
 
     { on = "<A-1>", run = "tab_switch 0", desc = "Tab 1" },
     { on = "<A-2>", run = "tab_switch 1", desc = "Tab 2" },
