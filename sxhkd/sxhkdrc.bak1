@@ -27,6 +27,10 @@ super + Escape
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
+# reload rules
+super + shift + r
+    ~/.config/bspwm/scripts/reload-rules
+
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
@@ -147,6 +151,14 @@ super + shift + b
 
 F3
         screenshot select
+
+
+###############
+# Dropdown Term #
+###############
+
+F8
+    tdrop -a -m -w 60% -x 20% -h 33% -y 2 -f '--class dropdown' alacritty
 
 
 # Volume #

@@ -1,0 +1,7 @@
+#!/bin/sh
+# bspwm calls this for every new window:
+# $1 = window id, $2 = class, $3 = instance
+# Anything printed to stdout is applied to that window.
+if [ "$2" = "dropdown" ] || [ "$3" = "dropdown" ]; then
+    echo "state=floating sticky=on layer=above border=off"
+fi

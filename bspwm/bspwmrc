@@ -3,9 +3,14 @@
 wmname LG3D &
 vmware-user-suid-wrapper &
 
-pgrep -x sxhkd >/dev/null || sxhkd &
+pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+# Give EVERY monitor the same 10 desktops (I..X).
+# The old single "bspc monitor -d ..." line only configured one monitor,
+# so the other one was left with a single static default desktop.
+for m in $(bspc query -M --names); do
+    bspc monitor "$m" -d I II III IV V VI VII VIII IX X
+done
 
 bspc config border_width 2
 bspc config window_gap 12
@@ -14,13 +19,9 @@ bspc config split_ratio 0.52
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
-
-# RESOLUCION ARANDR
+# RULES
+~/.config/bspwm/rules
+bspc config external_rules_command ~/.config/bspwm/external_rules
 
 # WALLPAPER
 feh --bg-fill ~/.config/Wallpaper/*.jpg
@@ -32,13 +33,9 @@ feh --bg-fill ~/.config/Wallpaper/*.jpg
 bspc config focus_follows_pointer true
 
 # PICOM
-pgrep -x picom >/dev/null || picom --daemon --log-level=error
-bspc config border_width 2
+pgrep -x picom > /dev/null || picom --daemon --log-level=error
 
 bspc config active_border_color "#a486dd"
 bspc config normal_border_color "#a486dd"
 
 xsetroot -cursor_name left_ptr &
-
-# Start KMonad after BSPWM/X11 is ready
-systemctl --user start kmonad &

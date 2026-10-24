@@ -1,0 +1,6 @@
+#!/bin/sh
+bspc rule -a firefox-esr desktop='^1' follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a Thunar desktop='^3' follow=on
+bspc rule -a mpv desktop='^9' follow=on
+bspc rule -a Screenkey manage=off
